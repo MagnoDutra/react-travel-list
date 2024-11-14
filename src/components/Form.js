@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { initialItems } from "./PackingList";
 
-export default function Form() {
+export default function Form({ onAddItems }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -11,7 +10,8 @@ export default function Form() {
     if (!description) return;
 
     const newItem = { description, quantity, packed: false, id: Date.now() };
-    // initialItems.push(newItem);
+
+    onAddItems(newItem);
 
     setDescription("");
     setQuantity(1);
