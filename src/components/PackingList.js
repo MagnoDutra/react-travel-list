@@ -6,7 +6,12 @@ export const initialItems = [
   { id: 2, description: "Socks", quantity: 12, packed: true },
 ];
 
-export default function PackingList({ items, onRemoveItem, onToggleItem }) {
+export default function PackingList({
+  items,
+  onRemoveItem,
+  onToggleItem,
+  onClearList,
+}) {
   const [sort, setSort] = useState("input");
 
   let sortedItems;
@@ -43,6 +48,7 @@ export default function PackingList({ items, onRemoveItem, onToggleItem }) {
         <option value="description">Sort by description order</option>
         <option value="packed">Sort by packed order</option>
       </select>
+      <button onClick={onClearList}>Clear list</button>
     </div>
   );
 }
